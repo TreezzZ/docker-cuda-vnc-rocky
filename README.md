@@ -15,7 +15,7 @@ The Docker image is installed with the following components:
 
 ## Installed
 * Rocky Linux 8
-* Nvidia Drivier
+* Nvidia Driver
 * Nvidia Cuda 11.7.1 (You can modify this in Dockerfile. I haven't tested other versions.)
 * Xfce4
 
