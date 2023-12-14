@@ -1,5 +1,8 @@
 
-build: build-debian-xfce-vnc
+build: build-rocky-xfce-vnc-cuda
+
+build-rocky-xfce-vnc-cuda:
+	docker build -t local/rocky-xfce-vnc-cuda -f ./Dockerfile.rocky-xfce-vnc-cuda .
 
 build-debian-xfce-vnc:
 	docker build -t local/debian-xfce-vnc -f ./Dockerfile.debian-xfce-vnc .
@@ -13,7 +16,11 @@ build-rocky-xfce-vnc:
 build-rocky-icewm-vnc:
 	docker build -t local/rocky-icewm-vnc -f ./Dockerfile.rocky-icewm-vnc .
 
-run: run-debian-xfce-vnc
+
+run: run-rocky-xfce-vnc-cuda
+
+run-rocky-xfce-vnc-cuda:
+	docker run -d --rm --gpus all -p 6901:6901 -p 5901:5901 local/rocky-xfce-vnc-cuda
 
 run-debian-xfce-vnc:
 	docker run -ti --rm -p 6901:6901 -p 5901:5901 local/debian-xfce-vnc
